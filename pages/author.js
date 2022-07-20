@@ -17,7 +17,7 @@ export default function Author() {
         <Button>Add An Author</Button>
       </Link>
       <div>
-        { authors.map((author) => (<AuthorCard key={author.firebaseKey} authorObj={author} />))}
+        { authors.map((author) => (<AuthorCard key={author.firebaseKey} authorObj={author} onUpdate={getAuthors} />))}
       </div>
 
     </div>
