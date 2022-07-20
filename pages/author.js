@@ -6,9 +6,8 @@ import { useAuth } from '../utils/context/authContext';
 import { getAuthors } from '../api/authorData';
 
 export default function Author() {
-  const { user } = useAuth();
-
   const [authors, setAuthors] = useState([]);
+  const { user } = useAuth();
 
   useEffect(() => { getAuthors(user.uid).then(setAuthors); }, [user.uid]);
 
@@ -18,7 +17,7 @@ export default function Author() {
         <Button>Add An Author</Button>
       </Link>
       <div>
-        { authors.map((author) => (<AuthorCard key={author.firebaseKey} />))}
+        { authors.map((author) => (<AuthorCard key={author.firebaseKey} authorObj={author} />))}
       </div>
 
     </div>

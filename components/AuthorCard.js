@@ -3,41 +3,39 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function AuthorCard({
-
-  email, firebaseKey, first_name, last_name, favorite, image,
-}) {
+export default function AuthorCard({ authorObj }) {
   return (
     <>
-      <div>Author </div>
-      <div> Email: {email}</div>
-      <div> FirebaseKey: {firebaseKey}</div>
-      <div> First Name: {first_name}</div>
-      <div> Last Name: {last_name}</div>
-      <div> Favorite : {favorite}</div>
-      <img src={image} alt={first_name} width="200" height="200" />
+      {/* <div>Author </div> */}
+      <div> Email: {authorObj.email}</div>
+      <div> favorite : {authorObj.favorite}</div>
+      <div> FirebaseKey: {authorObj.firebaseKey}</div>
+      <div> First Name: {authorObj.first_name}</div>
+      <div> Last Name: {authorObj.last_name}</div>
+      <img src={authorObj.image} alt={authorObj.first_name} width="200" height="200" />
     </>
   );
 }
 
 AuthorCard.propTypes = {
-  // authorObj: PropTypes.shape({
-  email: PropTypes.string.isRequired,
-  favorite: PropTypes.bool.isRequired,
-  firebaseKey: PropTypes.string.isRequired,
-  first_name: PropTypes.string.isRequired,
-  last_name: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired,
+  authorObj: PropTypes.shape({
+    email: PropTypes.string,
+    favorite: PropTypes.bool,
+    firebaseKey: PropTypes.string,
+    first_name: PropTypes.string,
+    last_name: PropTypes.string,
+    image: PropTypes.string,
 
-  // }).isRequired,
+  }).isRequired,
+  // onUpdate: PropTypes.func.isRequired,
 };
 
 // AuthorCard.defaultProps = {
 //   email: 'ta@ta.com',
 //   firebaseKey: '-MiBsfuTafbEQ7eAULxV',
-//   firstName: 'Tomi',
-//   lastName: 'Adeyemi',
+//   first_name: 'Tomi',
+//   last_name: 'Adeyemi',
 //   favorite: true,
-//   image: 'https://images-na.ssl-images-amazon.com/images/I/A1agLFsWkOL.jpg',
+// //   image: 'https://images-na.ssl-images-amazon.com/images/I/A1agLFsWkOL.jpg',
 
 // };
