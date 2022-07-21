@@ -12,7 +12,7 @@ const initialState = {
   firebaseKey: '',
   first_name: '',
   last_name: '',
-  favorite: '',
+  favorite: true,
 };
 
 export default function AuthorForm({ obj }) {
@@ -44,15 +44,27 @@ export default function AuthorForm({ obj }) {
   return (
     <Form onSubmit={handleSubmit}>
       <h2 className="text-white mt-5">{obj.firebaseKey ? 'Update' : 'Create'} Author</h2>
-      <FloatingLabel controlId="floatingInput1" label="Book Title" className="mb-3">
-        <Form.Control type="text" placeholder="Enter a title" name="title" value={formInput.title} onChange={handleChange} required />
+      <FloatingLabel controlId="floatingInput1" label="Author's First Name" className="mb-3">
+        <Form.Control type="text" placeholder="Enter Author's First Name" name="first_name" value={formInput.first_name} onChange={handleChange} required />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput2" label="Book Image" className="mb-3">
-        <Form.Control type="url" placeholder="Enter an image url" name="image" value={formInput.image} onChange={handleChange} required />
+      <FloatingLabel controlId="floatingInput2" label="Author's Last Name" className="mb-3">
+        <Form.Control type="text" placeholder="Enter Author's Last Name" name="last_name" value={formInput.last_name} onChange={handleChange} required />
       </FloatingLabel>
-      <FloatingLabel controlId="floatingInput3" label="Book Price" className="mb-3">
-        <Form.Control type="text" placeholder="Enter price" name="price" value={formInput.price} onChange={handleChange} required />
+      <FloatingLabel controlId="floatingInput3" label="Author's Email" className="mb-3">
+        <Form.Control type="text" placeholder="Enter Author's Email" name="email" value={formInput.email} onChange={handleChange} required />
       </FloatingLabel>
+      <Form.Check
+        className="text-white mb-3"
+        type="switch"
+        id="favorite"
+        name="favorite"
+        label="Favorite?"
+        checked={formInput.favorite}
+        onChange={(e) => setFormInput((prevState) => ({
+          ...prevState,
+          favorite: e.target.checked,
+        }))}
+      />
 
       <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Author</Button>
     </Form>

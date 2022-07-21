@@ -17,12 +17,12 @@ export default function AuthorCard({ authorObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Body>
         {/* <div>Author </div> */}
-        <div> Email: {authorObj.email}</div>
-        <div> favorite : {authorObj.favorite}</div>
-        <div> FirebaseKey: {authorObj.firebaseKey}</div>
         <div> First Name: {authorObj.first_name}</div>
         <div> Last Name: {authorObj.last_name}</div>
-        <img src={authorObj.image} alt={authorObj.first_name} width="200" height="200" />
+        <div> Email: {authorObj.email}</div>
+        <div> favorite : {authorObj.favorite}</div>
+        {/* <div> FirebaseKey: {authorObj.firebaseKey}</div>
+        <img src={authorObj.image} alt={authorObj.first_name} width="200" height="200" /> */}
         <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
           DELETE
         </Button>
@@ -38,7 +38,7 @@ AuthorCard.propTypes = {
     firebaseKey: PropTypes.string,
     first_name: PropTypes.string,
     last_name: PropTypes.string,
-    image: PropTypes.string,
+    // image: PropTypes.string,
 
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
