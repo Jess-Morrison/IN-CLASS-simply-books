@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleAuthor } from '../../../api/authorData';
-import AuthorCard from '../../../components/AuthorCard';
+import AuthorForm from '../../../components/forms/AuthorForm';
 
 const EditAuthor = () => {
   const [editItem, setEditItem] = useState({});
@@ -13,7 +13,7 @@ const EditAuthor = () => {
   },
   [firebaseKey]);
   return (
-    <AuthorCard obj={editItem} />
+    <AuthorForm obj={editItem} />
   );
 };
 
