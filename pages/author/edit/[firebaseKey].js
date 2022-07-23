@@ -12,6 +12,7 @@ const EditAuthor = () => {
     getSingleAuthor(firebaseKey).then(setEditItem);
   },
   [firebaseKey]);
+  console.warn(editItem);
   return (
     <AuthorForm obj={editItem} />
   );
