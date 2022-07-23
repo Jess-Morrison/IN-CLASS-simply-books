@@ -32,11 +32,11 @@ export default function AuthorForm({ obj }) {
     e.preventDefault();
     if (obj.firebaseKey) {
       updateAuthor(formInput)
-        .then(() => router.push(`/author/${obj.firebaseKey}`));
+        .then(() => router.push('/author'));
     } else {
       const payload = { ...formInput, uid: user.uid };
       createAuthor(payload).then(() => {
-        router.push('/');
+        router.push('/author');
       });
     }
   };
