@@ -30,9 +30,11 @@ export default function AuthorCard({ authorObj, onUpdate }) {
         <Link href={`/author/edit/${authorObj.firebaseKey}`} passHref>
           <Button variant="info">EDIT</Button>
         </Link>
-        <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
-          DELETE
-        </Button>
+        <Link href="/" passHref>
+          <Button variant="danger" onClick={deleteThisAuthor} className="m-2">
+            DELETE
+          </Button>
+        </Link>
       </Card.Body>
     </Card>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
@@ -19,6 +19,10 @@ export default function AuthorForm({ obj }) {
   const [formInput, setFormInput] = useState(initialState);
   const router = useRouter();
   const { user } = useAuth();
+
+  useEffect(() => {
+    if (obj.firebaseKey) setFormInput(obj);
+  }, [obj, user]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
